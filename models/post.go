@@ -1,9 +1,9 @@
 package models
 
 type Post struct {
-	id, title, content string
+	Id, Title, Content string
 }
 
-func NewPost(title, content string) *Post {
+func NewPost(id, title, content string) *Post {
 	return &Post{id, title, content}
 }
