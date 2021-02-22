@@ -30,12 +30,12 @@ func createHandler(w http.ResponseWriter, r *http.Request){
 
 
 func savePostHandler(w http.ResponseWriter, r *http.Request){
-	id := r.FormValue("id")
-	title := r.FormValue("title")
-	content := r.FormValue("content")
+	//id := r.FormValue("id")
+	//title := r.FormValue("title")
+	//content := r.FormValue("content")
 
-	post := models.NewPost(id, title, content)
-	posts[post.Id]
+	//post := models.NewPost(id, title, content)
+	//posts[post.Id] = post
 }
 
 func main ()  {
