@@ -4,8 +4,11 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+
 	"github.com/KirosKost/authblog/models"
 )
+
+var posts map[string]*models.Post
 
 func indexHandler(w http.ResponseWriter, r *http.Request){
 	tmpl, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html")
@@ -30,11 +33,13 @@ func savePostHandler(w http.ResponseWriter, r *http.Request){
 	title := r.FormValue("title")
 	content := r.FormValue("content")
 
-	post := models.NewPost(title, content)
+	post := models.NewPost(id, title, content)
+	posts[post.Id]
 }
 
 func main ()  {
 
+	posts = make(map[string]*models.Post, 0)
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/create/", createHandler)
 	http.HandleFunc("/savePost", savePostHandler)
