@@ -30,6 +30,7 @@ func createHandler(w http.ResponseWriter, r *http.Request){
 
 
 func savePostHandler(w http.ResponseWriter, r *http.Request){
+	id := r.FormValue("id")
 	title := r.FormValue("title")
 	content := r.FormValue("content")
 
