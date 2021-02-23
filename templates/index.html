@@ -1,29 +1,24 @@
-{{ define "index" }}
-{{ template "header" }}
-    <main role="main" class="inner cover">
-        <h1 class="cover-heading">Code.Kitchen</h1>
-        <p class="lead">Открытый блог, где любой может создавать посты о языке Go и обо всех новостях мира IT</p>
+<div>
+<main role="main" class="inner cover">
 
-<!--        {{ range . }}-->
-<!--        <div class="alert alert-danger">-->
-<!--            <h2>{{ .Title }}</h2>-->
-<!--            <p>{{ .Anons }}</p>-->
-<!--            <a href="/post/{{ .Id }}" class="btn btn-danger">Читать далее</a>-->
-<!--        </div>-->
-<!--        {{ else }}-->
+        {{ range $value := . }}
+    <div class="row">
+        <div class="col-xs-2">
 
-<!--        <p class="lead">Статей нет!</p>-->
+        </div>
+        <div class="col-xs-8">
+            <h2><a href="/edit/{{ $value,Id }}">{{ $value.Title }}</a></h2>
+        </div>
+    </div><div class="row">
+        <div class="col-xs-2">
 
-<!--        {{ end }}-->
+        </div>
+        <div class="col-xs-8">
+            {{ $value.ContentHtml | unescape }}
+        </div>
+    </div>
 
-<!--        <p class="lead">-->
-<!--            <a href="#" class="btn btn-lg btn-secondary">Узнать больше</a>-->
-<!--        </p>-->
+        {{ end }}
     </main>
-
-
-{{ template "footer" }}
-{{ end }}
-
-
+</div>
 

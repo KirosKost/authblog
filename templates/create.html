@@ -1,20 +1,22 @@
-{{ define "create" }}
-{{ template "header" }}
+
 <main role="main" class="inner cover">
     <h1 class="cover-heading">Добавление статьи</h1>
     <form action="/savePost" method="post">
-        <input type="hidden" name="id"/><br>
-        <input type="text" name="title" id="title" placeholder="Название статьи"
+        <input type="hidden" name="id" value="{{ .Id }}"/><br>
+        <input type="text" name="title" id="title" placeholder="Название статьи" value="{{ .Title }}"
         class="form-control"><br>
-        <textarea name="content" id="content" class="form-control" placeholder="Введите содержание статьи"></textarea><br>
+        <textarea name="content" id="content" class="form-control" placeholder="Введите содержание статьи">{{ .ContentMarkDown }}</textarea><br>
         <button class="btn btn-warning">Опубликовать</button>
-
+        {{ if .Id }}
+        <a href="/delete/{{ .Id }}" class="btn btn-danger">Удалить</a>
+        </body>
+        </html>
+        {{ end }}
     </form>
+    <div class="col-xs-6" id="md_html"></div>
+    {{ .ContentHtml }}
 </main>
-
-
-{{ template "footer" }}
-{{ end }}
+<script type="text/javascript" src="/static/js/write.js"></script>
 
 
 
