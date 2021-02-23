@@ -1,4 +1,4 @@
-<div>
+
 <main role="main" class="inner cover">
 
         {{ range $value := . }}
@@ -7,7 +7,7 @@
 
         </div>
         <div class="col-xs-8">
-            <h2><a href="/edit/{{ $value,Id }}">{{ $value.Title }}</a></h2>
+            <h2><a href="/edit/{{ $value.Id }}">{{ $value.Title }}</a></h2>
         </div>
     </div><div class="row">
         <div class="col-xs-2">
@@ -20,5 +20,4 @@
 
         {{ end }}
     </main>
-</div>
 
